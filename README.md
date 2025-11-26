@@ -1,8 +1,75 @@
-🤖 Fur I.A. - A Assistente Sarcástica"Não sou paga para ser simpática. Sou paga para processar dados... e olhe lá." — Fur I.A.📖 Sobre o ProjetoA Fur I.A. é uma prova de conceito de um Chatbot Full-Stack com personalidade forte, hospedado na nuvem. Diferente das IAs assistentes tradicionais, ela foi programada via Engenharia de Prompt para ser sarcástica, rabugenta e direta.O projeto utiliza a API mais recente do Google (Gemini 2.5 Flash) e converte as respostas de texto para áudio (TTS) em tempo real, rodando em arquitetura serverless no Google Cloud Platform (GCP).🔴 Demonstração ao Vivo (Google Cloud Run)A aplicação está implantada em produção e rodando em um container no Google Cloud. Clique abaixo para testar:<div align="center">Link direto: https://fur-ia-app-355272677756.us-central1.run.app/</div>⚙️ Funcionalidades & DestaquesPersonalidade Única: Uma IA que foge do padrão "serviçal", entregando respostas com sarcasmo e humor ácido.Voz em Tempo Real: Integração de Text-to-Speech (TTS) para que a Fur I.A. "fale" as respostas.Modelo Experimental: Utiliza o gemini-2.5-flash, superando limitações das versões estáveis anteriores.Segurança Personalizada: Ajuste fino nos filtros de segurança (BLOCK_NONE) para permitir a persona "rude" sem bloqueios indevidos da API.🚀 Arquitetura e TecnologiasComponenteTecnologiaFunção no ProjetoCérebro (IA)Google Gemini APIModelo gemini-2.5-flash para geração de texto e raciocínio.Frontend/BackendStreamlit (Python)Interface do chat e lógica de aplicação em um único framework.HospedagemGoogle Cloud RunExecução serverless do container Docker com escala automática.ContainerDockerEmpacotamento da aplicação e suas dependências para deploy.🔧 Como Rodar LocalmentePré-requisitos: Python 3.9+ e uma chave de API do Google Gemini.Clone o repositório:git clone [https://github.com/rogeriocabral25/fur-I.A.git](https://github.com/rogeriocabral25/fur-I.A.git)
-cd fur-I.A
-Crie um ambiente virtual e instale as dependências:python -m venv venv
-# Windows: venv\Scripts\activate
-# Linux/Mac: source venv/bin/activate
-pip install -r requirements.txt
-Configure a API Key:Crie um arquivo .env na raiz do projeto.Adicione sua chave: GEMINI_API_KEY="SUA_CHAVE_AQUI"Execute a aplicação:streamlit run app.py
-👨‍💻 AutorDesenvolvido por Rogério Cabral
+# 🤖 Fur I.A. - A Assistente Sarcástica
+
+![Python](https://img.shields.io/badge/Python-3.9+-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white)
+![Google Gemini](https://img.shields.io/badge/Google%20Gemini%20API-8E75B2?style=for-the-badge&logo=google&logoColor=white)
+![Google Cloud Run](https://img.shields.io/badge/Google_Cloud_Platform-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white)
+
+> *"Não sou paga para ser simpática. Sou paga para processar dados... e olhe lá."* — Fur I.A.
+
+## 📖 Sobre o Projeto
+
+A **Fur I.A.** é uma prova de conceito de um Chatbot Full-Stack com personalidade forte, hospedado na nuvem. Diferente das IAs assistentes tradicionais, ela foi programada via **Engenharia de Prompt** para ser sarcástica, rabugenta e direta.
+
+O projeto utiliza a API mais recente do Google (**Gemini 2.5 Flash**) e converte as respostas de texto para áudio (TTS) em tempo real, rodando em arquitetura serverless no **Google Cloud Platform (GCP)**.
+
+## 🔴 Demonstração ao Vivo (Google Cloud Run)
+
+A aplicação está implantada em produção e rodando em um container no Google Cloud. Clique abaixo para testar:
+
+<div align="center">
+
+[![Acessar Demo Online](https://img.shields.io/badge/▶%EF%B8%8F_CLIQUE_AQUI_PARA_ACESSAR_A_DEMO-FF4B4B?style=for-the-badge&logo=google-cloud&logoColor=white)](https://fur-ia-app-355272677756.us-central1.run.app/)
+
+**Link direto:** https://fur-ia-app-355272677756.us-central1.run.app/
+
+</div>
+
+## ⚙️ Funcionalidades & Destaques
+
+* **Personalidade Única:** Uma IA que foge do padrão "serviçal", entregando respostas com sarcasmo e humor ácido.
+* **Voz em Tempo Real:** Integração de Text-to-Speech (TTS) para que a Fur I.A. "fale" as respostas.
+* **Modelo Experimental:** Utiliza o `gemini-2.5-flash`, superando limitações das versões estáveis anteriores.
+* **Segurança Personalizada:** Ajuste fino nos filtros de segurança (`BLOCK_NONE`) para permitir a persona "rude" sem bloqueios indevidos da API.
+
+## 🚀 Arquitetura e Tecnologias
+
+| Componente | Tecnologia | Função no Projeto |
+| :--- | :--- | :--- |
+| **Cérebro (IA)** | **Google Gemini API** | Modelo `gemini-2.5-flash` para geração de texto e raciocínio. |
+| **Frontend/Backend** | **Streamlit (Python)** | Interface do chat e lógica de aplicação em um único framework. |
+| **Hospedagem** | **Google Cloud Run** | Execução serverless do container Docker com escala automática. |
+| **Container** | **Docker** | Empacotamento da aplicação e suas dependências para deploy. |
+
+## 🔧 Como Rodar Localmente
+
+Pré-requisitos: Python 3.9+ e uma chave de API do Google Gemini.
+
+1.  Clone o repositório:
+    ```bash
+    git clone [https://github.com/rogeriocabral25/fur-I.A.git](https://github.com/rogeriocabral25/fur-I.A.git)
+    cd fur-I.A
+    ```
+
+2.  Crie um ambiente virtual e instale as dependências:
+    ```bash
+    python -m venv venv
+    # Windows: venv\Scripts\activate
+    # Linux/Mac: source venv/bin/activate
+    pip install -r requirements.txt
+    ```
+
+3.  Configure a API Key:
+    * Crie um arquivo `.env` na raiz do projeto.
+    * Adicione sua chave: `GEMINI_API_KEY="SUA_CHAVE_AQUI"`
+
+4.  Execute a aplicação:
+    ```bash
+    streamlit run app.py
+    ```
+
+## 👨‍💻 Autor
+
+Desenvolvido por **Rogério Cabral**
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rogério-cabral-609072397/) [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/rogeriocabral25)
