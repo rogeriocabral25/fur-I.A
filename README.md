@@ -1,22 +1,8 @@
-## 📦 Como Rodar Localmente
-
-Pré-requisitos: Python 3.9+ e uma chave de API do Google Gemini.
-
-```bash
-# 1. Clone o repositório
-git clone [https://github.com/rogeriocabral25/fur-I.A.git](https://github.com/rogeriocabral25/fur-I.A.git)
+🤖 Fur I.A. - A Assistente Sarcástica"Não sou paga para ser simpática. Sou paga para processar dados... e olhe lá." — Fur I.A.📖 Sobre o ProjetoA Fur I.A. é uma prova de conceito de um Chatbot Full-Stack com personalidade forte, hospedado na nuvem. Diferente das IAs assistentes tradicionais, ela foi programada via Engenharia de Prompt para ser sarcástica, rabugenta e direta.O projeto utiliza a API mais recente do Google (Gemini 2.5 Flash) e converte as respostas de texto para áudio (TTS) em tempo real, rodando em arquitetura serverless no Google Cloud Platform (GCP).🔴 Demonstração ao Vivo (Google Cloud Run)A aplicação está implantada em produção e rodando em um container no Google Cloud. Clique abaixo para testar:<div align="center">Link direto: https://fur-ia-app-355272677756.us-central1.run.app/</div>⚙️ Funcionalidades & DestaquesPersonalidade Única: Uma IA que foge do padrão "serviçal", entregando respostas com sarcasmo e humor ácido.Voz em Tempo Real: Integração de Text-to-Speech (TTS) para que a Fur I.A. "fale" as respostas.Modelo Experimental: Utiliza o gemini-2.5-flash, superando limitações das versões estáveis anteriores.Segurança Personalizada: Ajuste fino nos filtros de segurança (BLOCK_NONE) para permitir a persona "rude" sem bloqueios indevidos da API.🚀 Arquitetura e TecnologiasComponenteTecnologiaFunção no ProjetoCérebro (IA)Google Gemini APIModelo gemini-2.5-flash para geração de texto e raciocínio.Frontend/BackendStreamlit (Python)Interface do chat e lógica de aplicação em um único framework.HospedagemGoogle Cloud RunExecução serverless do container Docker com escala automática.ContainerDockerEmpacotamento da aplicação e suas dependências para deploy.🔧 Como Rodar LocalmentePré-requisitos: Python 3.9+ e uma chave de API do Google Gemini.Clone o repositório:git clone [https://github.com/rogeriocabral25/fur-I.A.git](https://github.com/rogeriocabral25/fur-I.A.git)
 cd fur-I.A
-
-# 2. Crie um ambiente virtual
-python -m venv venv
+Crie um ambiente virtual e instale as dependências:python -m venv venv
 # Windows: venv\Scripts\activate
 # Linux/Mac: source venv/bin/activate
-
-# 3. Instale as dependências (Versão exata para suporte ao Gemini 2.5)
 pip install -r requirements.txt
-
-# 4. Configure a API Key
-# Crie um arquivo .env na raiz e adicione: GEMINI_API_KEY="SUA_CHAVE"
-
-# 5. Execute
-streamlit run app.py
+Configure a API Key:Crie um arquivo .env na raiz do projeto.Adicione sua chave: GEMINI_API_KEY="SUA_CHAVE_AQUI"Execute a aplicação:streamlit run app.py
+👨‍💻 AutorDesenvolvido por Rogério Cabral
