@@ -1,57 +1,80 @@
-# 🏴‍☠️ Jogo da Memória - One Piece Edition
+# 🤖 Fur I.A. - A Assistente Sarcástica
 
-![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
-![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
-![Google Cloud](https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.9+-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white)
+![Google Gemini](https://img.shields.io/badge/Google%20Gemini%20API-8E75B2?style=for-the-badge&logo=google&logoColor=white)
+![Google Cloud Run](https://img.shields.io/badge/Google_Cloud_Platform-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white)
 
-> *"Eu serei o Rei dos Piratas!"* — Monkey D. Luffy
+> *"Não sou paga para ser simpática. Sou paga para processar dados... e olhe lá."* — Fur I.A.
 
 ## 📖 Sobre o Projeto
 
-Este é um **Jogo da Memória** interativo desenvolvido com JavaScript Puro (Vanilla JS), HTML e CSS. O tema escolhido foi **One Piece**, trazendo os personagens do bando do Chapéu de Palha.
+A **Fur I.A.** é uma prova de conceito de um Chatbot Full-Stack com personalidade forte, hospedado na nuvem. Diferente das IAs assistentes tradicionais, ela foi programada via **Engenharia de Prompt** para ser sarcástica, rabugenta e direta.
 
-O diferencial técnico deste projeto é sua infraestrutura: a aplicação foi **containerizada com Docker** e implantada no **Google Cloud Run**, garantindo alta disponibilidade e acesso via HTTPS.
+O projeto utiliza a API mais recente do Google (**Gemini 2.5 Flash**) e converte as respostas de texto para áudio (TTS) em tempo real, rodando em arquitetura serverless no **Google Cloud Platform (GCP)**.
 
 ---
 
-## 🎮 Jogue Agora (Demo Online)
+## 🔴 Demonstração ao Vivo (Google Cloud Run)
 
-A aplicação está rodando na nuvem do Google. Clique abaixo para testar sua memória:
+A aplicação está implantada em produção e rodando em um container no Google Cloud. Clique abaixo para testar:
 
 <div align="center">
 
-[![Jogue Agora](https://img.shields.io/badge/▶%EF%B8%8F_CLIQUE_AQUI_PARA_JOGAR-FF4B4B?style=for-the-badge&logo=google-cloud&logoColor=white)](https://memory-game-355272677756.us-central1.run.app)
+[![Acessar Demo Online](https://img.shields.io/badge/▶%EF%B8%8F_CLIQUE_AQUI_PARA_ACESSAR_A_DEMO-FF4B4B?style=for-the-badge&logo=google-cloud&logoColor=white)](https://fur-ia-app-355272677756.us-central1.run.app/)
 
-**Link direto:** https://memory-game-355272677756.us-central1.run.app
+**Link direto:** `https://fur-ia-app-355272677756.us-central1.run.app/`
 
 </div>
 
 ---
 
-## 🚀 Tecnologias Utilizadas
+## 🚀 Arquitetura e Tecnologias no GCP
 
-| Tech | Função |
-| :--- | :--- |
-| **HTML5 & CSS3** | Estrutura semântica e estilização responsiva (Grid Layout). |
-| **JavaScript (ES6+)** | Lógica do jogo, manipulação do DOM e `localStorage`. |
-| **Docker** | Criação de container leve para empacotar a aplicação web. |
-| **Google Cloud Run** | Hospedagem Serverless escalável. |
+Este projeto demonstra um fluxo moderno de Deploy de IA na nuvem do Google:
 
----
-
-## 🔧 Como Rodar Localmente
-
-1.  Clone o repositório.
-2.  Abra o arquivo `index.html` no seu navegador.
-3.  Insira seu nome e divirta-se!
+| Componente | Tecnologia GCP Utilizada | Função no Projeto |
+| :--- | :--- | :--- |
+| **Cérebro (IA)** | **Google Gemini API** | Modelo `gemini-2.5-flash` para geração de texto com raciocínio rápido. |
+| **Hospedagem** | **Cloud Run** | Execução do container da aplicação de forma serverless (escala automática). |
+| **Container** | **Docker** | Empacotamento da aplicação Streamlit e suas dependências. |
+| **Build** | **Cloud Build** | (Implícito no deploy) Constrói a imagem do container na nuvem. |
 
 ---
 
-## 👨‍💻 Autor
+## 💡 Destaques Técnicos & Desafios
 
-Desenvolvido por **Rogério Cabral**
+### 1. Acesso ao Modelo Gemini 2.5 Flash
+Durante o desenvolvimento, identifiquei discrepâncias entre o ambiente local e a nuvem. Implementei um **script de diagnóstico** que revelou acesso exclusivo a modelos experimentais na minha chave de API:
+- **Desafio:** Erro `404 Model Not Found` persistente ao tentar usar modelos padrão.
+- **Solução:** Diagnóstico de versões da biblioteca `google-generativeai` e migração bem-sucedida para o modelo experimental `gemini-2.5-flash`, superando as limitações das versões estáveis.
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/SEU-LINKEDIN)
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/rogeriocabral25)
+### 2. Personalidade vs. Filtros de Segurança no GCP
+Para garantir que a IA mantivesse a persona "rude" sem ser bloqueada pela API na nuvem:
+- Ajuste fino nos `safety_settings` (HarmBlockThreshold) para `BLOCK_NONE`.
+- System Instruction robusta para definir o "roleplay" da IA.
+
+---
+
+## 📦 Como Rodar Localmente
+
+Pré-requisitos: Python 3.9+ e uma chave de API do Google Gemini.
+
+```bash
+# 1. Clone o repositório
+git clone [https://github.com/rogeriocabral25/fur-I.A.git](https://github.com/rogeriocabral25/fur-I.A.git)
+cd fur-I.A
+
+# 2. Crie um ambiente virtual
+python -m venv venv
+# Windows: venv\Scripts\activate
+# Linux/Mac: source venv/bin/activate
+
+# 3. Instale as dependências (Versão exata para suporte ao Gemini 2.5)
+pip install -r requirements.txt
+
+# 4. Configure a API Key
+# Crie um arquivo .env na raiz e adicione: GEMINI_API_KEY="SUA_CHAVE"
+
+# 5. Execute
+streamlit run app.py
